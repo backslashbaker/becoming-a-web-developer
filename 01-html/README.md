@@ -6,9 +6,9 @@ HTML is the basic building block of all web development. It's not too complex, b
 
 Build a mock-up of a to-do list web page. It should feature:
 
-- [ ] A title element for your to-do list [`html title element`]
-- [ ] Some existing to-do items
-- [ ] A button for each to-do item to delete it (it won't do anything just yet) [`html button element`]
+- [x] A title element for your to-do list [`html title element`]
+- [x] Some existing to-do items
+- [x] A button for each to-do item to delete it (it won't do anything just yet) [`html button element`]
 - [ ] A form at the bottom of the page to add a new to-do item (an text entry box and a button - also won't do anything yet) [`html forms`]
 
 And that's it for now (we'll build on this in future stages)
