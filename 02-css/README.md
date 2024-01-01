@@ -6,12 +6,12 @@ If the HTML in step 1 provides the content of a web page, CSS provides the style
 
 Copy the html file from the previous step into this folder. You should add style to it so that it looks better. You should:
 
-- [ ] Start with an inline stylesheet in the head of your existing page
-- [ ] Give each to-do item a clearer boundary around it
-- [ ] Make the "delete" button less obtrusive
-- [ ] Use a different font for the page (let's go with a sans-serif one to make it look modern)
+- [x] Start with an inline stylesheet in the head of your existing page
+- [x] Give each to-do item a clearer boundary around it
+- [x] Make the "delete" button less obtrusive
+- [x] Use a different font for the page (let's go with a sans-serif one to make it look modern)
 - [ ] Use the title in a header element for the page (you might need to add this)
-- [ ] Move your stylesheet into an external file and link it into the document
+- [x] Move your stylesheet into an external file and link it into the document
 
 It's still not going to be a functional to-do list, but it should look a little better than the previous step.
 
