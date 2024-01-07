@@ -1,0 +1,27 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+ul button {
+	display: inline;
+	color: black;
+	text-align: center;
+	text-decoration: none;
+	border: 1px none;
+}
+
+li {
+	background-color: #f0f0f0;
+	border: 1px none;
+}
+
+body h2 {
+	color: gray;
+}
