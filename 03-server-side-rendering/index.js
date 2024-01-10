@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const getTodos = require("./todos");
 
 const app = express();
 const port = 8000;

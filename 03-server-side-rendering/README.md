@@ -17,9 +17,9 @@ We'll be extending the single list so that we can have multiple lists in this ap
 
 Look at the `index.js` file and make sure you understand what it is doing. Once you do you should:
 
-- [ ] Make the `/` endpoint return the content from the `index.html` page in the previous step (the one with the external stylesheet). You should be able to just copy it into the js file as a string. (Pro tip: use a `template string` with a `` backtick (`)`` to enable the string to go on multiple lines)
-- [ ] Add another endpoint for the css (maybe something like `main.css` but it's up to you). You can use the same technique of bringing the text from the CSS file into the document using a string and just returning it from the endpoint you create. This CSS will be sent with the wrong `mime type` which might cause your browser not to apply it. Try adding a `Content-Type` header to set the correct mime type for CSS. [`express content type header`, `mime types`]
-- [ ] Try to add it as a `static file` instead. Create a folder for your assets to go in and then try to configure express to serve out files from this folder. [`express js static files`]
+- [x] Make the `/` endpoint return the content from the `index.html` page in the previous step (the one with the external stylesheet). You should be able to just copy it into the js file as a string. (Pro tip: use a `template string` with a `` backtick (`)`` to enable the string to go on multiple lines)
+- [x] Add another endpoint for the css (maybe something like `main.css` but it's up to you). You can use the same technique of bringing the text from the CSS file into the document using a string and just returning it from the endpoint you create. This CSS will be sent with the wrong `mime type` which might cause your browser not to apply it. Try adding a `Content-Type` header to set the correct mime type for CSS. [`express content type header`, `mime types`]
+- [x] Try to add it as a `static file` instead. Create a folder for your assets to go in and then try to configure express to serve out files from this folder. [`express js static files`]
 
 Now we're going to do some home made HTML templating (there are lots of libraries out there for this, but it's always good to see what it takes to build one yourself):
 
