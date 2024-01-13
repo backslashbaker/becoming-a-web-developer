@@ -11,7 +11,7 @@ let todos = {
     name: "Shopping List",
     todos: [
       { id: 4, task: "Buy some milk", complete: false },
-      { id: 5, task: "Buy some bananas", complete: false },
+      { id: 5, task: "Buy some bananas", complete: true },
       { id: 6, task: "Buy some chocolate", complete: false },
     ],
   },
