@@ -1,9 +1,8 @@
 function createTodoItem(todo) {
   return `
-    <li id="todo-${todo.id}" class="${
-    todo.complete ? 'complete' : 'incomplete'
-  }" style="list-style-type: none;">
-      <p>${todo.task}</p>
+    <li id="todo-${todo.id}" class="${todo.complete ? 'complete' : 'incomplete'}" style="list-style-type: none;">
+      <input type="checkbox" id="checkbox-${todo.id}" ${todo.complete ? 'checked' : ''} onclick="toggleTodo(${todo.id})">
+      <label for="checkbox-${todo.id}">${todo.task}</label>
       <button onclick="deleteTodo(${todo.id})">Delete</button>
     </li>
   `

@@ -64,7 +64,7 @@ At the moment, we've built a simple app that can take your input and add it to o
 
 Try adding a To-Do task with the text `<script>alert("you've been 0wned")</script>` and see what happens. You should see that we've just enabled an attacker to execute arbitrary Javascript within our web application. You might think that this is just annoying, but if this were some kind of site where users logged in, someone could post some code that stole your log in cookie and sent it to a remote server so that someone else could steal your account. Depending on what this site does this could be catastrophic.
 
-- [ ] One approach to handling untrusted input that's going to be rendered in a page is to `HTML Encode` it. This will replace characters like `<` with their HTML entity equivalent `&lt;`. Try doing this and see if this fixes the issue we tested. [`node.js html encoding`]
+- [x] One approach to handling untrusted input that's going to be rendered in a page is to `HTML Encode` it. This will replace characters like `<` with their HTML entity equivalent `&lt;`. Try doing this and see if this fixes the issue we tested. [`node.js html encoding`]
 
 There are other security vulnerabilities in the site as it stands, but we'll look at those later as we build out more advanced functionality.
 
