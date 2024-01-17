@@ -47,14 +47,14 @@ We're going to let a user select which list they want to view. Do the following:
 
 The next step is to start building up the `CRUD` (Create, Read, Update, Delete) behaviours that make up most web services (well, technically we've already created the `Read` action!). We're going to be running everything in memory for now. This means everything will reset when you stop and start the app. We'll be looking at how to store things more persistently in later steps.
 
-- [ ] Create a function in the `todos.js` file called `addTodo`. It should take two arguments; the list id and a todo object (like the ones in the `todos` array in `todos.js` but without an `id` attribute as we'll be calculating that in the function) and it should add a new object to the `todos` array in that file. At the moment, we're hand-rolling our own database so you'll need to work out what to set the `id` attribute to. Find the maximum id of the existing items and add one.
-- [ ] Add a `post` endpoint into `index.js` with the path `/lists/:listId/add-todo`. Post requests are used for `post`ing data from the web browser to the web server [`express js post request`, `http post request`]
-- [ ] Forms can send their data to the web server using either `GET` or `POST` requests. `POST` requests are generally preferred for doing things that change the state of the application (like adding a To-Do). You'll need to do a few things to make sure you can receive the data from your "new to-do" form in your web app:
+- [x] Create a function in the `todos.js` file called `addTodo`. It should take two arguments; the list id and a todo object (like the ones in the `todos` array in `todos.js` but without an `id` attribute as we'll be calculating that in the function) and it should add a new object to the `todos` array in that file. At the moment, we're hand-rolling our own database so you'll need to work out what to set the `id` attribute to. Find the maximum id of the existing items and add one.
+- [x] Add a `post` endpoint into `index.js` with the path `/lists/:listId/add-todo`. Post requests are used for `post`ing data from the web browser to the web server [`express js post request`, `http post request`]
+- [x] Forms can send their data to the web server using either `GET` or `POST` requests. `POST` requests are generally preferred for doing things that change the state of the application (like adding a To-Do). You'll need to do a few things to make sure you can receive the data from your "new to-do" form in your web app:
   - Add attributes to your form to make it `POST` the data to your new endpoint [`html form attributes`]
   - Configure express to be able to parse the data that is sent [`express post request form`]
   - Name the input text field in your form so you can access it on the server
-- [ ] You then need to take the data that is sent to the server and use it to pass into your new `addTodo` function along with the `listId` from the URL.
-- [ ] Once you've done this you should re-render the page. You can just re-render it in the post handler, but it's better practice to just redirect back to the current page as that is already set up to render the page. [`express js redirect`]
+- [x] You then need to take the data that is sent to the server and use it to pass into your new `addTodo` function along with the `listId` from the URL.
+- [x] Once you've done this you should re-render the page. You can just re-render it in the post handler, but it's better practice to just redirect back to the current page as that is already set up to render the page. [`express js redirect`]
 
 You should now be able to enter some text into your "new To-Do" form and it should be added to the list. Congratulations, you've just made a (semi) working To-Do list application. But we've still got a bit further to go. Before we do, this is a good time to illustrate an important point about security.
 

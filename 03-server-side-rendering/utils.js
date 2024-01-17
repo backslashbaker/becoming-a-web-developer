@@ -18,7 +18,7 @@ function createTodoList(todos) {
   `
 }
 
-function createPage(todoListHTML) {
+function createPage(todoListHTML, listId = 'default') {
   return `
     <!DOCTYPE html>
     <html>
@@ -34,6 +34,11 @@ function createPage(todoListHTML) {
       <ul>
         ${todoListHTML}
       </ul>
+      <h2>Add Todo</h2>
+      <form id="new-todo-form" action="/lists/${listId}/add-todo" method="POST">
+        <input name="task" />
+        <button>Add</button>
+      </form>
     </body>
     </html>
   `
