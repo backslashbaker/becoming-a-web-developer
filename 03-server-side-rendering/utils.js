@@ -44,4 +44,11 @@ function createPage(todoListHTML, listId = 'default') {
   `
 }
 
-module.exports = { createTodoList, createPage }
+function htmlEncode(str) {
+  return str.replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+}
+module.exports = { createTodoList, createPage, htmlEncode }

@@ -1,7 +1,7 @@
 const express = require('express')
 const path = require('path')
 const { getTodos } = require('./todos')
-const { createTodoList, createPage } = require('./utils')
+const { createTodoList, createPage, htmlEncode } = require('./utils')
 const bodyParser = require('body-parser')
 
 const app = express()
@@ -30,23 +30,24 @@ app.get('/lists/:listId', (req, res) => {
 })
 
 app.post('/lists/:listId/add-todo', (req, res) => {
-  const newTodo = req.body.task;
-  const listId = req.params.listId;
-  let todos = getTodos(listId);
-  
+  const newTodo = req.body.task
+  const encodedTodo = htmlEncode(newTodo)
+  const listId = req.params.listId
+  let todos = getTodos(listId)
+
   if (!todos) {
-    addTodos(listId, []);
-    todos = getTodos(listId);
+    addTodos(listId, [])
+    todos = getTodos(listId)
   }
 
   todos.push({
     id: todos.length + 1,
-    task: newTodo,
+    task: encodedTodo,
     complete: false,
-  });
+  })
 
-  res.redirect(`/lists/${listId}`);
-});
+  res.redirect(`/lists/${listId}`)
+})
 
 app.get('/css/style.css', (req, res) => {
   res.sendHeader(200, { 'Content-Type': 'text/css' })
