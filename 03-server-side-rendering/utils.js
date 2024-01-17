@@ -1,7 +1,7 @@
 function createTodoItem(todo) {
   return `
     <li id="todo-${todo.id}" class="${todo.complete ? 'complete' : 'incomplete'}" style="list-style-type: none;">
-      <input type="checkbox" id="checkbox-${todo.id}" ${todo.complete ? 'checked' : ''} onclick="toggleTodo(${todo.id})">
+      <input type="checkbox" id="checkbox-${todo.id}" name="complete-${todo.id}" ${todo.complete ? 'checked' : ''} onclick="toggleTodo(${todo.id})">
       <label for="checkbox-${todo.id}">${todo.task}</label>
       <button onclick="deleteTodo(${todo.id})">Delete</button>
     </li>
@@ -30,9 +30,12 @@ function createPage(todoListHTML, listId = 'default') {
       <link rel="stylesheet" href="/assests/mystyle.css" />
     </head>
     <body>
+    <form id="todo-list-form action="/lists/${listId}/update-todos>
       <ul>
         ${todoListHTML}
       </ul>
+      <button>Save</button>
+    </form>
       <h2>Add Todo</h2>
       <form id="new-todo-form" action="/lists/${listId}/add-todo" method="POST">
         <input name="task" />

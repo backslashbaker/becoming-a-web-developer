@@ -29,4 +29,18 @@ function getTodos(list = 'default') {
   return todos[list].todos
 }
 
-module.exports = { getLists, getTodos }
+function updateTodo(listId, todo) {
+  const list = todos[listId];
+  if (!list) {
+    throw new Error(`List ${listId} not found`);
+  }
+
+  const existingTodos = getTodos(listId);
+  existingTodos.forEach(existingTodo => {
+    if (existingTodo.id === todo.id) {
+      existingTodo.complete = todo['complete-x'] !== undefined ? todo['complete-x'] : existingTodo.complete;
+    }
+  });
+}
+
+module.exports = { getLists, getTodos, updateTodo }

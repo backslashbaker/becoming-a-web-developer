@@ -1,6 +1,6 @@
 const express = require('express')
 const path = require('path')
-const { getTodos } = require('./todos')
+const { getTodos, updateTodo } = require('./todos')
 const { createTodoList, createPage, htmlEncode } = require('./utils')
 const bodyParser = require('body-parser')
 
@@ -48,6 +48,8 @@ app.post('/lists/:listId/add-todo', (req, res) => {
 
   res.redirect(`/lists/${listId}`)
 })
+
+app.post('/lists/:listId/update-todos', (req, res) => {})
 
 app.get('/css/style.css', (req, res) => {
   res.sendHeader(200, { 'Content-Type': 'text/css' })
