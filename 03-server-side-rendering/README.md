@@ -39,9 +39,9 @@ At the moment, you should have a list of To-Do tasks rendering when you visit [h
   
 We're going to let a user select which list they want to view. Do the following:
 
-- [ ] Modify `index.js` to change the path of the main endpoint from `/` to `/lists/:listId`. This tells `express` to parse the URL and put wahtever it finds after `/lists/` into a variable called `listId`. We can use this to let a user select which list they want to view. It's worth reading up on the options for this to make sure you understand it fully. [`express routing`]
-- [ ] In the handler function for showing a list (that you just modified), pull the `listId` out into a variable and pass it into the `getTodos()` function. Reload the server and then visit [http://localhost:8000/lists/default](http://localhost:8000/lists/default) which should still show your default list. Change the URL to [http://localhost:8000/lists/shopping](http://localhost:8000/lists/shopping) and you should now see a different list.
-- [ ] Add a simple template to list the lists and serve this out on `/` - you should be able to modify what you have already built for showing a list to do this. You should be able to re-use the main template you created. You should also add a link somewhere on the task list page to give you a way to get to the index of lists you just created.
+- [x] Modify `index.js` to change the path of the main endpoint from `/` to `/lists/:listId`. This tells `express` to parse the URL and put wahtever it finds after `/lists/` into a variable called `listId`. We can use this to let a user select which list they want to view. It's worth reading up on the options for this to make sure you understand it fully. [`express routing`]
+- [x] In the handler function for showing a list (that you just modified), pull the `listId` out into a variable and pass it into the `getTodos()` function. Reload the server and then visit [http://localhost:8000/lists/default](http://localhost:8000/lists/default) which should still show your default list. Change the URL to [http://localhost:8000/lists/shopping](http://localhost:8000/lists/shopping) and you should now see a different list.
+- [x] Add a simple template to list the lists and serve this out on `/` - you should be able to modify what you have already built for showing a list to do this. You should be able to re-use the main template you created. You should also add a link somewhere on the task list page to give you a way to get to the index of lists you just created.
 
 ### Part Three - Form input
 
