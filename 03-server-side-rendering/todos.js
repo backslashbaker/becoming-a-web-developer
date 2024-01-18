@@ -38,7 +38,10 @@ function updateTodo(listId, todo) {
   const existingTodos = getTodos(listId);
   existingTodos.forEach(existingTodo => {
     if (existingTodo.id === todo.id) {
-      existingTodo.complete = todo['complete-x'] !== undefined ? todo['complete-x'] : existingTodo.complete;
+      existingTodo.complete = todo.complete;
+      existingTodo.task = todo.task;
+
+
     }
   });
 }

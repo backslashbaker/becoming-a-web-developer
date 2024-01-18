@@ -1,13 +1,25 @@
 const express = require('express')
 const path = require('path')
 const { getTodos, updateTodo } = require('./todos')
-const { createTodoList, createPage, htmlEncode } = require('./utils')
+const { createTodoList, createPage } = require('./utils')
 const bodyParser = require('body-parser')
+const { encode } = require('html-entities')
 
 const app = express()
 const port = 8000
 
 app.use(bodyParser.urlencoded({ extended: true }))
+
+app.use((req, res, next) => {
+  const escapedBody = Object.fromEntries(
+    Object.entries(req.body).map(([key, value]) => [
+      key,
+      typeof value === 'string' ? encode(value) : value,
+    ])
+  )
+  req.body = escapedBody
+  next()
+})
 
 function addTodos(listId, todos) {
   todos[listId] = { name: listId, todos: [] }
@@ -31,7 +43,6 @@ app.get('/lists/:listId', (req, res) => {
 
 app.post('/lists/:listId/add-todo', (req, res) => {
   const newTodo = req.body.task
-  const encodedTodo = htmlEncode(newTodo)
   const listId = req.params.listId
   let todos = getTodos(listId)
 
@@ -42,14 +53,27 @@ app.post('/lists/:listId/add-todo', (req, res) => {
 
   todos.push({
     id: todos.length + 1,
-    task: encodedTodo,
+    task: newTodo,
     complete: false,
   })
 
   res.redirect(`/lists/${listId}`)
 })
 
-app.post('/lists/:listId/update-todos', (req, res) => {})
+app.post('/lists/:listId/update-todos', (req, res) => {
+  const listId = req.params.listId
+  const completedTasks = Object.keys(req.body).map((key) =>
+    key.replace('complete-', '')
+  )
+  for (const completedTask of completedTasks) {
+    const todo = getTodos(listId).find(
+      (todo) => todo.id === Number(completedTask)
+    )
+    todo.complete = true
+    updateTodo(listId, todo)
+  }
+  res.redirect(`/lists/${listId}`)
+})
 
 app.get('/css/style.css', (req, res) => {
   res.sendHeader(200, { 'Content-Type': 'text/css' })
