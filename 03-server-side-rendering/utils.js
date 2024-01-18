@@ -7,7 +7,7 @@ function createTodoItem(todo) {
     todo.id
   }" ${todo.complete ? 'checked' : ''} onclick="toggleTodo(${todo.id})">
       <label for="checkbox-${todo.id}">${todo.task}</label>
-      <button onclick="deleteTodo(${todo.id})">Delete</button>
+      <button name="delete" value="${todo.id}">Delete</button>
     </li>
   `
 }

@@ -30,20 +30,31 @@ function getTodos(list = 'default') {
 }
 
 function updateTodo(listId, todo) {
-  const list = todos[listId];
+  const list = todos[listId]
   if (!list) {
-    throw new Error(`List ${listId} not found`);
+    throw new Error(`List ${listId} not found`)
   }
 
-  const existingTodos = getTodos(listId);
-  existingTodos.forEach(existingTodo => {
+  const existingTodos = getTodos(listId)
+  existingTodos.forEach((existingTodo) => {
     if (existingTodo.id === todo.id) {
-      existingTodo.complete = todo.complete;
-      existingTodo.task = todo.task;
-
-
+      existingTodo.complete = todo.complete
+      existingTodo.task = todo.task
     }
-  });
+  })
 }
 
-module.exports = { getLists, getTodos, updateTodo }
+function deleteTodo(listId, taskId) {
+  const list = todos[listId]
+  if (!list) {
+    throw new Error(`List ${listId} not found`)
+  }
+
+  const existingTodos = getTodos(listId)
+  const newTodos = existingTodos.filter(
+    (existingTodo) => existingTodo.id !== taskId
+  )
+  list.todos = newTodos
+}
+
+module.exports = { getLists, getTodos, updateTodo, deleteTodo }

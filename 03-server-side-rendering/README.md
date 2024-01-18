@@ -91,10 +91,10 @@ Can you think of any ways of handling this? See if you can modify the logic so t
 
 We're going to wire up the `delete` button that we put in at the beginning now. Here's what to do:
 
-- [ ] Make sure the button has a name attribute (you may as well call it `delete`) and a value attribute of the id that's being deleted.
-- [ ] When the button is clicked, because it's within the `/list/:listId/update-todos` form, it will also submit the form. It should add a parameter of `delete` with the id of the todo as its value to the data being `post`ed to the server.
-- [ ] Add a function to the `todos.js` file called `deleteTodo` which takes a list ID and a task id as arguments and removes that todo from the list.
-- [ ] Modify your code so that if the `delete` value is set, you call the `deleteTodo` function you just made
+- [x] Make sure the button has a name attribute (you may as well call it `delete`) and a value attribute of the id that's being deleted.
+- [x] When the button is clicked, because it's within the `/list/:listId/update-todos` form, it will also submit the form. It should add a parameter of `delete` with the id of the todo as its value to the data being `post`ed to the server.
+- [x] Add a function to the `todos.js` file called `deleteTodo` which takes a list ID and a task id as arguments and removes that todo from the list.
+- [x] Modify your code so that if the `delete` value is set, you call the `deleteTodo` function you just made
 
 And that's it - you've just made a fully functional To-Do app from scratch in just HTML and some server-side Javascript with a sprinkling of CSS to make it look nice. We'll be building on this app and extending and improving it (and completely rebuilding it eventually!).
 

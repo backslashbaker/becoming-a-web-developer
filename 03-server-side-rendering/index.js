@@ -1,6 +1,6 @@
 const express = require('express')
 const path = require('path')
-const { getTodos, updateTodo } = require('./todos')
+const { getTodos, updateTodo, deleteTodo } = require('./todos')
 const { createTodoList, createPage } = require('./utils')
 const bodyParser = require('body-parser')
 const { encode } = require('html-entities')
@@ -62,15 +62,21 @@ app.post('/lists/:listId/add-todo', (req, res) => {
 
 app.post('/lists/:listId/update-todos', (req, res) => {
   const listId = req.params.listId
-  const completedTasks = Object.keys(req.body).map((key) =>
-    key.replace('complete-', '')
-  )
-  for (const completedTask of completedTasks) {
-    const todo = getTodos(listId).find(
-      (todo) => todo.id === Number(completedTask)
+  console.log(req.body)
+
+  if (req.body.delete) {
+    deleteTodo(listId, Number(req.body.delete))
+  } else {
+    const completedTasks = Object.keys(req.body).map((key) =>
+      key.replace('complete-', '')
     )
-    todo.complete = true
-    updateTodo(listId, todo)
+    for (const completedTask of completedTasks) {
+      const todo = getTodos(listId).find(
+        (todo) => todo.id === Number(completedTask)
+      )
+      todo.complete = true
+      updateTodo(listId, todo)
+    }
   }
   res.redirect(`/lists/${listId}`)
 })
