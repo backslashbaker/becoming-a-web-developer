@@ -2,8 +2,8 @@ let todos = {
   default: {
     name: 'Default',
     todos: [
-      { id: 1, task: 'Learn some HTML', complete: true },
-      { id: 2, task: 'Learn some CSS', complete: true },
+      { id: 1, task: 'Learn some HTML', complete: false },
+      { id: 2, task: 'Learn some CSS', complete: false },
       { id: 3, task: 'Become a web developer', complete: false },
     ],
   },
