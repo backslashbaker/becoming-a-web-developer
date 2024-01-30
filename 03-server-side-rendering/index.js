@@ -62,7 +62,6 @@ app.post('/lists/:listId/add-todo', (req, res) => {
 
 app.post('/lists/:listId/update-todos', (req, res) => {
   const listId = req.params.listId
-  console.log(req.body)
 
   if (req.body.delete) {
     deleteTodo(listId, Number(req.body.delete))
@@ -87,5 +86,4 @@ app.get('/css/style.css', (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`Server Side Rendering app listening on port ${port}`)
 })
